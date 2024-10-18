@@ -54,14 +54,6 @@ class CRUDRespository {
       throw error;
     }
   }
-  async update(id, data, transaction){
-    const response = await this.model.update(data, {
-      where: {
-        id: id,
-      },
-    }, {transaction:transaction});
-    return response;
-  }
 }
 
 module.exports = CRUDRespository;

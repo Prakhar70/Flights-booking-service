@@ -12,8 +12,18 @@ class BookingRepository extends CRUDRespository{
         return response;
     }
     async get(data, transaction) {
-          const response = await this.model.findByPk(data, {transaction:transaction});
-          return response;
+          
+        const response = await Booking.findByPk(data, {transaction:transaction});
+        return response;
+    }
+    async update(id, data, transaction){
+        console.log(data);
+        const response = await Booking.update(data, {
+          where: {
+            id: id,
+          },
+        }, {transaction:transaction});
+        return response;
     }
 }
 
